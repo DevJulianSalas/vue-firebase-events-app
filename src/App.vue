@@ -1,12 +1,13 @@
 <template>
-    <div id="app">
-      <component :is="layout"></component>
-    </div>
+  <div id="app">
+    <component :is="layout"></component>
+  </div>
 </template>
 
 <script>
-import HomeLayout from '@/layouts/HomeLayout'
 import LoginLayout from '@/layouts/LoginLayout'
+import HomeLayout from '@/layouts/HomeLayout'
+
 export default {
   name: 'app',
   components: {
@@ -14,8 +15,7 @@ export default {
     HomeLayout
   },
   computed: {
-    layout () {
-      console.log(this.$store)
+    layout() {
       return this.$store.getters.layout
     }
   }
@@ -23,4 +23,10 @@ export default {
 </script>
 
 <style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+}
 </style>
