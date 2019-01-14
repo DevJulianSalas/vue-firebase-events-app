@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueFire from 'vuefire'
-import firebase from 'firebase/app'
+import firebase from 'firebase/app';
 import 'firebase/firestore'
 
 Vue.use(VueFire)
@@ -15,8 +15,21 @@ const config = {
 
 firebase.initializeApp(config)
 
+
 //init the database
 export const db = firebase.firestore()
+
+
+//auto import components
+const requireComponents = require.context('@/components', true, /\w+.+\.(vue|js)$/)
+
+requireComponents.keys().forEach(fileName => {
+  const componentConfig = requireComponents(fileName)
+  const componentName = fileName.replace(/^\.\/(.*)\.\w+$/, '$1')
+  const subComponentName = componentName.replace(/^[a-z]+\/(.*)/, '$1')
+  Vue.component(subComponentName, componentConfig.default || componentConfig)
+})
+
 
 
 
