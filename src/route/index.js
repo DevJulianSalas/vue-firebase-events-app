@@ -2,9 +2,11 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Meta from 'vue-meta'
 import store from '@/store'
+
 //Views
 import Login from '@/views/Login'
 import Home from '@/views/Home'
+import CreateEvent from  '@/views/CreateEvent'
 
 
 Vue.use(Router)
@@ -25,6 +27,12 @@ let router = new Router({
             path: '/',
             name: 'home',
             component: Home,
+            meta
+        },
+        {
+            path: '/create-event',
+            name: 'crear-evento',
+            component: CreateEvent,
             meta
         }
     ]

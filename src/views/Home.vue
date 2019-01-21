@@ -2,11 +2,6 @@
   <div>
       <el-row>
         <el-col :span="24">
-          <x-header/>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="24">
           <x-search-event/>
         </el-col>
       </el-row>

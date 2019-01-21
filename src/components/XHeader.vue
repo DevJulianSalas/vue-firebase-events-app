@@ -6,9 +6,19 @@
       </el-col>
       <el-col :span="20">
         <el-row type="flex" justify="end" align="middle" class="navbar-items">
-          <el-col :span="3">crear evento</el-col>
-          <el-col :span="3">notificaciones</el-col>
-          <el-col :span="3">cerrar sesion</el-col>
+          <el-menu 
+            mode="horizontal"
+            class="el-menu-demo"
+            router
+          >
+            <el-menu-item 
+              v-for="(item, index) in items" 
+              :key="index"
+              :index="item.path" 
+            >
+              <span>{{item.name}}</span>
+            </el-menu-item>
+          </el-menu>
         </el-row> 
       </el-col>
     </el-row>
@@ -22,6 +32,33 @@
 <script>
 export default {
   name: "x-header",
+  data: function () {
+    return {
+      items: [
+        {
+          name: 'Home',
+          path: '/'
+        },
+        {
+          name: 'Crear evento',
+          path: 'create-event'
+        },
+        {
+          name: 'Notificaciones',
+          path: 'notifications'
+        },
+        {
+          name: 'Cerrar sesion',
+          path: 'logout'
+        }
+      ]
+    }
+  },
+  methods: {
+    onNavigation() {
+      console.log("shit")
+    }
+  }
 };
 </script>
 
@@ -45,5 +82,10 @@ export default {
   display: flex;
   height: 100%;
   width: 100%;
+}
+
+.el-menu-demo {
+  border-bottom: None !important;
+
 }
 </style>

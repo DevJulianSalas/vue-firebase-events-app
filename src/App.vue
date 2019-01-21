@@ -53,4 +53,14 @@ html {
 body{
   margin: 0%;
 }
+
+.nav-item-link {
+  text-decoration: none;
+  color: #2c3e50;
+}
+
+.hline-bottom {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e6e6e6;
+}
 </style>

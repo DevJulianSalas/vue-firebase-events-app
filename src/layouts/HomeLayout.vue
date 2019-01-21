@@ -1,5 +1,10 @@
 <template>
-    <router-view></router-view>
+  <div>
+    <x-header/>
+    <v-content>
+      <router-view />
+    </v-content>
+  </div>
 </template>
 
 <script>
